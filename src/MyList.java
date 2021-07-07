@@ -5,6 +5,7 @@ public class  MyList <T> {
     private T[] list;
     private int size = 0;
 
+
     public MyList()
     {
         this.list = (T[])new Object[10];
@@ -28,6 +29,7 @@ public class  MyList <T> {
             if (this.list[i] == null)
             {
                 this.list[i] = data;
+                this.size += 1;
                 return;
             }
 
@@ -39,7 +41,7 @@ public class  MyList <T> {
         {
             doubleList[i] = this.list[i];
         }
-
+        this.size += 1;
         doubleList[this.list.length] = data;
         this.list = doubleList;
 
@@ -73,7 +75,7 @@ public class  MyList <T> {
         }
 
         this.list[this.list.length - 1] = null;
-
+        this.size -= 1;
         return returnValue;
     }
 
@@ -198,6 +200,11 @@ public class  MyList <T> {
         }
 
         return false;
+    }
+
+    public int size()
+    {
+        return this.size;
     }
 
 }
